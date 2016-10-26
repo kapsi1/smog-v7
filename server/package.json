@@ -1,0 +1,16 @@
+{
+  "name": "Smog Małopolska - server",
+  "version": "7.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dateformat": "^1.0.12",
+    "request": "^2.76.0",
+    "restify": "^4.1.1"
+  }
+}

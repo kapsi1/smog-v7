@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smog Małopolska</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #5cb85c;
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            align-items: center;
+        }
+
+        body.orange {
+            background-color: #f0ad4e;;
+        }
+
+        body.red {
+            background-color: #d9534f;
+        }
+
+        .value {
+            font-size: 61vh;
+        }
+
+        .description {
+            position: absolute;
+            left: 5px;
+            top: 5px;
+        }
+
+        .location {
+            position: absolute;
+            left: 5px;
+            bottom: 5px;
+        }
+
+        .time {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="description">PM10</div>
+<div class="location"></div>
+<div class="value"></div>
+<div class="time"></div>
+<script src="date.format.js"></script>
+<script src="speed-dial.js"></script>
+</body>
+</html>
