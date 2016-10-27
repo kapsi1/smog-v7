@@ -4,7 +4,6 @@ const serverUrl =  'https://smogserver.herokuapp.com/', //'http://localhost:8080
 selectEl.addEventListener('change', event => {
     let stationId = selectEl.options[selectEl.selectedIndex].value
     chrome.storage.local.set({'stationId': stationId})
-    chrome.runtime.sendMessage(stationId);
 })
 
 fetch(serverUrl)
