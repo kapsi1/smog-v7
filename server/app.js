@@ -105,6 +105,7 @@ server.get('/', (req, res, next) => {
     next()
 })
 
-server.listen(8080, _ => console.log(`Server started, listening at ${server.url}`))
+const port = process.env.PORT || 8080
+server.listen(port, _ => console.log(`Server started, listening at ${server.url} port ${port}`))
 setInterval(updateData, 15 * 60 * 1000) //15 minutes
 updateData()
