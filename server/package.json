@@ -6,7 +6,10 @@
   "scripts": {
     "start": "node app.js"
   },
-  "author": "",
+  "engines": {
+    "node": "6.9.1"
+  },
+  "author": "kapsi",
   "license": "ISC",
   "dependencies": {
     "dateformat": "^1.0.12",
