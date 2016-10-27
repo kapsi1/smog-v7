@@ -1,5 +1,5 @@
 const MAX_PM10_ALLOWED_VALUE = 50, //µg/m³
-    serverUrl = 'http://localhost:8080'
+    serverUrl = 'https://smogserver.herokuapp.com/' //'http://localhost:8080'
 
 function isToday(inputDate) {
     return new Date(inputDate.getTime()).setHours(0, 0, 0, 0) == new Date().setHours(0, 0, 0, 0)

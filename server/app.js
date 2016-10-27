@@ -100,7 +100,7 @@ function clientAddress(req) {
 }
 
 server.get('/', (req, res, next) => {
-    console.log(`GET /stations from ${clientAddress(req)}`)
+    console.log(`GET / from ${clientAddress(req)}`)
     res.send(stations.filter(station => station.channel !== undefined))
     next()
 })
