@@ -93,27 +93,18 @@ server.pre((req, res, next) => {
     res.charSet('utf-8')
     next()
 })
+server.use(restify.CORS())
 
 function clientAddress(req) {
-    return (req.headers['x-forwarded-for'] || '').split(',')[0]
-        || req.connection.remoteAddress;
+    return (req.headers['x-forwarded-for'] || '').split(',')[0] || req.connection.remoteAddress
 }
 
 server.get('/', (req, res, next) => {
     console.log(`GET /stations from ${clientAddress(req)}`)
-    res.send(stations
-        .filter(station => station.channel !== undefined)
-        .map(station => {
-                return {
-                    name: station.name,
-                    lastDataPoint: station.lastDataPoint
-                }
-            }
-        )
-    )
+    res.send(stations.filter(station => station.channel !== undefined))
     next()
 })
 
 server.listen(8080, _ => console.log(`Server started, listening at ${server.url}`))
-setInterval(updateData, 15 * 60 * 1000)
+setInterval(updateData, 15 * 60 * 1000) //15 minutes
 updateData()

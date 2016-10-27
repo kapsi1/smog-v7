@@ -1,9 +1,18 @@
+const MAX_PM10_ALLOWED_VALUE = 50, //µg/m³
+    serverUrl = 'http://localhost:8080'
+
 function isToday(inputDate) {
     return new Date(inputDate.getTime()).setHours(0, 0, 0, 0) == new Date().setHours(0, 0, 0, 0)
 }
 
-const MAX_PM10_ALLOWED_VALUE = 50, //µg/m³
-    valEl = document.querySelector('.value'),
+let selectedStationId
+chrome.storage.local.get('stationId', obj => {
+    if(!obj.stationId) chrome.runtime.openOptionsPage()
+    selectedStationId = Number(obj.stationId)
+    getData()
+})
+
+const valEl = document.querySelector('.value'),
     timeEl = document.querySelector('.time'),
     locationEl = document.querySelector('.location')
 
@@ -18,9 +27,26 @@ function updateValues(value, timestamp, location) {
         document.body.className = '';
     }
 
-    let date = new Date(timestamp)
+    let date = new Date(Number(timestamp + '000'))
     timeEl.textContent = date.format(isToday(date) ? 'HH:MM' : 'HH:MM dd.mm.yyyy')
 
     locationEl.textContent = location
 }
 
+function getData() {
+    fetch(serverUrl)
+        .then(res => res.json())
+        .then(stations => {
+            let station = stations.find(station => station.id === selectedStationId)
+            updateValues(station.lastDataPoint[1], station.lastDataPoint[0], station.name)
+        })
+}
+
+chrome.storage.onChanged.addListener(changes => {
+    selectedStationId = Number(changes.stationId.newValue)
+    getData()
+});
+
+setInterval(_ => {
+    if (selectedStationId !== undefined) getData()
+}, 1000 * 60 * 5) //5 minutes
