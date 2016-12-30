@@ -17,7 +17,7 @@
   "permissions": [
     "speeddial",
     "storage",
-    "http://smog-server.herokuapp.com/"
+    "http://smogserver-konik.rhcloud.com/"
   ],
   "speeddial": {
     "url": "http://monitoring.krakow.pios.gov.pl/",

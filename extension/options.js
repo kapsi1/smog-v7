@@ -1,4 +1,4 @@
-const serverUrl =  'https://smogserver.herokuapp.com/', //'http://localhost:8080'
+const serverUrl =  'http://smogserver-konik.rhcloud.com/', //'http://localhost:8080'
     selectEl = document.querySelector('select')
 
 selectEl.addEventListener('change', event => {
