@@ -6,9 +6,6 @@
   "scripts": {
     "start": "node app.js"
   },
-  "engines": {
-    "node": "6.9.1"
-  },
   "author": "kapsi",
   "license": "ISC",
   "dependencies": {

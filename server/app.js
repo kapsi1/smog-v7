@@ -105,8 +105,9 @@ server.get('/', (req, res, next) => {
     next()
 })
 
-const port = process.env.NODE_PORT
-showModalDialog('port', port)
-server.listen(port, _ => console.log(`Server started, listening at ${server.url} port ${port}`))
+server.listen(process.env.NODE_PORT || 3000, process.env.NODE_IP || 'localhost', function () {
+  console.log(`Application worker ${process.pid} started...`);
+});
+
 setInterval(updateData, 15 * 60 * 1000) //15 minutes
 updateData()
