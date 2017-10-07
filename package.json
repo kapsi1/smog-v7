@@ -2,9 +2,9 @@
   "name": "Smog",
   "version": "7.0.1",
   "description": "",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
-    "start": "node app.js"
+    "start": "node server.js"
   },
   "author": "kapsi",
   "license": "ISC",
