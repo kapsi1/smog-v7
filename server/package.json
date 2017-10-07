@@ -1,6 +1,6 @@
 {
   "name": "Smog",
-  "version": "7.0.0",
+  "version": "7.0.1",
   "description": "",
   "main": "app.js",
   "scripts": {
@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "dateformat": "^1.0.12",
-    "request": "^2.76.0",
-    "restify": "^4.1.1"
+    "express": "^4.16.1",
+    "request": "^2.76.0"
   }
 }

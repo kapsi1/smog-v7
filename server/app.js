@@ -1,6 +1,6 @@
 const request = require('request'),
-    restify = require('restify'),
-    dateFormat = require('dateformat')
+    dateFormat = require('dateformat'),
+    express = require('express')
 
 // request.debug = true
 
@@ -88,12 +88,7 @@ function updateData() {
 
 //==========================
 //server
-const server = restify.createServer()
-server.pre((req, res, next) => {
-    res.charSet('utf-8')
-    next()
-})
-server.use(restify.CORS())
+const server = express()
 
 function clientAddress(req) {
     return (req.headers['x-forwarded-for'] || '').split(',')[0] || req.connection.remoteAddress
@@ -102,11 +97,10 @@ function clientAddress(req) {
 server.get('/', (req, res, next) => {
     console.log(`GET / from ${clientAddress(req)}`)
     res.send(stations.filter(station => station.channel !== undefined))
-    next()
 })
 
-server.listen(process.env.NODE_PORT || 3000, process.env.NODE_IP || 'localhost', function () {
-  console.log(`Application worker ${process.pid} started...`);
+server.listen(process.env.NODE_PORT || 8080, process.env.NODE_IP || '0.0.0.0', function () {
+    console.log(`Application worker ${process.pid} started...`);
 });
 
 setInterval(updateData, 15 * 60 * 1000) //15 minutes
