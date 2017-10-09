@@ -99,8 +99,10 @@ server.get('/', (req, res, next) => {
     res.send(stations.filter(station => station.channel !== undefined))
 })
 
-server.listen(process.env.NODE_PORT || 8080, process.env.NODE_IP || '0.0.0.0', function () {
-    console.log(`Application worker ${process.pid} started...`);
+let port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
+    ip   = process.env.IP   || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
+server.listen(port, ip, function () {
+    console.log(`Application worker with pid:${process.pid} started on ${ip}:${port}`);
 });
 
 setInterval(updateData, 15 * 60 * 1000) //15 minutes
