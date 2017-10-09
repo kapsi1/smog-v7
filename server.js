@@ -107,3 +107,4 @@ server.listen(port, ip, function () {
 
 setInterval(updateData, 15 * 60 * 1000) //15 minutes
 updateData()
+module.exports = server;
