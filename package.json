@@ -4,7 +4,16 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": ""
+  },
+  "engine": {
+    "node": "*",
+    "npm": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kapsi1/smog-v7"
   },
   "author": "kapsi",
   "license": "ISC",
