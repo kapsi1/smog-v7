@@ -2,8 +2,8 @@
   "manifest_version": 2,
   "name": "Smog Małopolska",
   "description": "Poziom smogu w Małopolsce",
-  "version": "9",
-  "homepage_url": "https://github.com/kapsi1/Smog",
+  "version": "11",
+  "homepage_url": "https://github.com/kapsi1/smog-v7",
   "background": {"page": "speed-dial.html"},
   "options_ui": {
     "page": "options.html",
@@ -17,7 +17,7 @@
   "permissions": [
     "speeddial",
     "storage",
-    "http://smogserver-konik.rhcloud.com/"
+    "http://default-environment.e2uzb9ftv3.eu-west-1.elasticbeanstalk.com/"
   ],
   "speeddial": {
     "url": "http://monitoring.krakow.pios.gov.pl/",

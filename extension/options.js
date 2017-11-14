@@ -1,4 +1,4 @@
-const serverUrl =  'http://smogserver-konik.rhcloud.com/', //'http://localhost:8080'
+const serverUrl =  'http://default-environment.e2uzb9ftv3.eu-west-1.elasticbeanstalk.com/', //'http://localhost:8080'
     selectEl = document.querySelector('select')
 
 selectEl.addEventListener('change', event => {

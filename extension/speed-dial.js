@@ -1,5 +1,5 @@
 const MAX_PM10_ALLOWED_VALUE = 50, //µg/m³
-    serverUrl = 'http://smogserver-konik.rhcloud.com/' //'http://localhost:8080'
+    serverUrl = 'http://default-environment.e2uzb9ftv3.eu-west-1.elasticbeanstalk.com/' //'http://localhost:8080'
 
 function isToday(inputDate) {
     return new Date(inputDate.getTime()).setHours(0, 0, 0, 0) == new Date().setHours(0, 0, 0, 0)
