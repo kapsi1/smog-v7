@@ -95,7 +95,7 @@ function clientAddress(req) {
 }
 
 server.get('/', (req, res, next) => {
-    console.log(`GET / from ${clientAddress(req)}`)
+    console.log(`${new Date()} GET / from ${clientAddress(req)}`)
     res.send(stations.filter(station => station.channel !== undefined))
 })
 
@@ -105,6 +105,6 @@ server.listen(port, ip, function () {
     console.log(`Application worker with pid:${process.pid} started on ${ip}:${port}`);
 });
 
-setInterval(updateData, 15 * 60 * 1000) //15 minutes
+setInterval(updateData, 30 * 60 * 1000) //30 minutes
 updateData()
 module.exports = server;

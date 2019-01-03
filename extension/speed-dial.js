@@ -49,4 +49,4 @@ chrome.storage.onChanged.addListener(changes => {
 
 setInterval(_ => {
     if (selectedStationId !== undefined) getData()
-}, 1000 * 60 * 5) //5 minutes
+}, 1000 * 60 * 30) //30 minutes
